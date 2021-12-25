@@ -1,1 +1,33 @@
-<p>home works!</p>
+<mat-grid-list cols="4" rowHeight="1rem">
+  <mat-grid-tile [colspan]="tiles[0].cols" [rowspan]="tiles[0].rows"
+                 [style.background]="tiles[0].color">
+    <!-- NOTE Add Hero Crousal Content here -->
+    <div class="slider">
+      <div class="crousal-backdrop">
+      <div class="crousal-image">
+        <img class="crousal-image" width="100%" src="https://image.tmdb.org/t/p/original//hv7o3VgfsairBoQFAawgaQ4cR1m.jpg"
+             alt=""></div>
+      </div>
+      <div class="crousal-card">
+        <div class="crousal-card__container">
+          <div class="card-heading">
+            <h1>The Matrix Resurrections</h1> 
+          </div>
+          <div class="card-info">
+            <span>7.7</span>
+            <span>613 Reviews</span>
+            <span>2021</span>
+          </div>
+          <div>
+            Plagued by strange memories, Neo's life takes an unexpected turn when he finds himself back inside the Matrix. 
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="tiles[1].cols" [rowspan]="tiles[1].rows"
+                 [style.background]="tiles[1].color">
+    <div> Add Content here </div>
+  </mat-grid-tile>
+</mat-grid-list>
