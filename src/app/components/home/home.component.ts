@@ -14,8 +14,8 @@ export interface Tile {
 })
 export class HomeComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
-  Result$!: Observable<movieLists_resp>;
-  Result!: movieLists_resp;
+  Results$!: Observable<movieLists_resp>;
+  Results!: movieLists_resp;
   constructor(private movieService: MovieService) { }
 
   tiles: Tile[] = [
@@ -25,10 +25,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.movieService.GetMovieLists("popular");
-    this.Result$ = this.movieService.getState();
-    this.subscription.push(this.Result$.subscribe
+    this.Results$ = this.movieService.getState();
+    this.subscription.push(this.Results$.subscribe
       ((res) => {
-        this.Result = res
+        this.Results = res
       })
     );
   }
