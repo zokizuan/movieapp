@@ -46,7 +46,7 @@ export class MovieService extends Store<movieLists_resp>  {
     }
     let pageNumber = `page=${pageNumberValue}`
 
-    const API_URL = this.APIBaseURL + this.APIversion + "/" + movietype + this.popular + this.ApiKey + this.Ampersand + "language=" + this.english_language + this.Ampersand + pageNumber;
+    const API_URL = this.APIBaseURL + this.APIversion + this.movie + "/" + movietype + this.ApiKey + this.Ampersand + "language=" + this.english_language + this.Ampersand + pageNumber;
     // TEST
 
     this.http
@@ -74,7 +74,7 @@ export class MovieService extends Store<movieLists_resp>  {
       // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
-    window.alert(errorMessage);
+    // window.alert(errorMessage);
     return throwError(errorMessage);
   }
 }
