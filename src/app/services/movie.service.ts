@@ -32,7 +32,7 @@ export class MovieService extends Store<movieLists_resp>  {
   readonly movie = "/movie";
   readonly top_rated = "/top_rated";
   readonly APIBaseURL = 'https://api.themoviedb.org';
-  readonly ApiKey = "?api_key=c396ce4ccf1636a115618f3a5570d9e5";
+  // readonly ApiKey = "?api_key=c396ce4ccf1636a115618f3a5570d9e5";
   readonly english_language = "en-US";
   readonly Ampersand = "&"
   readonly popular = "/popular"
@@ -46,7 +46,7 @@ export class MovieService extends Store<movieLists_resp>  {
     }
     let pageNumber = `page=${pageNumberValue}`
 
-    const API_URL = this.APIBaseURL + this.APIversion + this.movie + "/" + movietype + this.ApiKey + this.Ampersand + "language=" + this.english_language + this.Ampersand + pageNumber;
+    const API_URL = this.APIBaseURL + this.APIversion + this.movie + "/" + movietype +  '?' + "language=" + this.english_language + this.Ampersand + pageNumber;
     // TEST
 
     this.http
