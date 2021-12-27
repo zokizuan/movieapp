@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MovieService } from './services/movie.service';
+import { AddKeyInterceptor } from './core/interceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,9 +22,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [MovieService,{ provide: HTTP_INTERCEPTORS, useClass: AddKeyInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

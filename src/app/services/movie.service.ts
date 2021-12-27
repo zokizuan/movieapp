@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Store } from '../core/store';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, first, retry, throwError } from 'rxjs';
 import { movieLists_resp, MovieType } from '../core/models/stateModel/stateModels';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'

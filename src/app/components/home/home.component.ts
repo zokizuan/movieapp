@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
 
   ngOnInit(): void {
+    this.movieService.GetMovieLists("popular");
     this.Result$ = this.movieService.getState();
     this.subscription.push(this.Result$.subscribe
       ((res) => {
