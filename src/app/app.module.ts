@@ -10,8 +10,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MovieService } from './services/movie.service';
 import { AddKeyInterceptor } from './core/interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { MovieComponent } from './components/movie/movie.component';
 import { MovieDetailService } from './services/moviedetail.service';
+import { MovieModule } from './movie/movie.module';
 
 
 @NgModule({
@@ -19,7 +19,6 @@ import { MovieDetailService } from './services/moviedetail.service';
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    MovieComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +26,7 @@ import { MovieDetailService } from './services/moviedetail.service';
     BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
+    MovieModule
   ],
   providers: [MovieService,MovieDetailService,{ provide: HTTP_INTERCEPTORS, useClass: AddKeyInterceptor, multi: true }],
   bootstrap: [AppComponent]
