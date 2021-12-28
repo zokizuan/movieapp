@@ -10,6 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MovieService } from './services/movie.service';
 import { AddKeyInterceptor } from './core/interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MovieComponent } from './components/movie/movie.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     NavbarComponent,
+    MovieComponent,
   ],
   imports: [
     BrowserModule,
