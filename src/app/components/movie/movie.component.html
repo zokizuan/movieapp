@@ -1,7 +1,12 @@
-<div>
-  <img src="" alt="">
-<button (click)="test()">
-  TEst
-</button>  
-  
-</div>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+  <div style="">
+    <img src="https://www.themoviedb.org/t/p/w440_and_h660_face{{Results.poster_path}}" alt="">
+  </div>
+  <h1>{{Results.title}}</h1>
+  <h3 style="width: 500px; text-align: center;">{{Results.overview}}</h3>
+  <div style="margin-bottom: 10px;">
+    
+    <span style="font-size: 20px; font-weight: 500;">Genre: </span> <span style="color: rgb(0, 0, 0); background-color: rgb(255, 152, 152); border-radius: 3px; margin: 5px; padding: 5px 15px 5px 15px ; border: solid rgb(255, 8, 8);" *ngFor="let genre of Results.genres">{{genre.name}} </span>
+  </div>
+  <h2>Release Date: {{Results.release_date}}</h2>
+  </div>

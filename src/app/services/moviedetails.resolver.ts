@@ -13,10 +13,10 @@ import { MovieDetailService } from './moviedetail.service';
 export class MoviedetailsResolver implements Resolve<boolean> {
   constructor(private movieDetailService: MovieDetailService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-    console.log(route.paramMap.get('id'));
+    // console.log(route.paramMap.get('id'));
     const MovieID: string = route.paramMap.get('id')!;
     this.movieDetailService.GetMovieDetails(MovieID);
-    // console.log(this.movieDetailService.getState())
+    console.log(this.movieDetailService.getState())
     return this.movieDetailService.getState().pipe(
       filter(movieDetail => !!movieDetail),
       first(),
