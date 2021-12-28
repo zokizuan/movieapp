@@ -53,8 +53,6 @@ export class MovieService extends Store<movieLists_resp>  {
         this.setState(ResultData);
       });
   }
-
-  /*   const API_URL = (searchQuery == "" || searchQuery == undefined) ? (this.APIBaseURL + this.APIversion + this.movie + this.popular + this.ApiKey + this.Ampersand + "language=" + this.english_language + this.Ampersand + pageNumber) : (this.APIBaseURL + this.APIversion + this.movie + this.popular + this.ApiKey + this.Ampersand + "language=" + this.english_language + this.Ampersand + pageNumber); */
   // Error handling
   handleError(error: any) {
     let errorMessage = '';

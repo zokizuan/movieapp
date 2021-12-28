@@ -23,8 +23,11 @@ export class MovieDetailService extends Store<requiredMovieDetail_resp>  {
       'Content-Type': 'application/json',
     }),
   };
-
-  public GetMovieDetails(movieid: number) {
+/**
+ * 
+ * @param movieid Id of the movie
+ */
+  public GetMovieDetails(movieid: string):void {
     const API_URL = apiDetails.APIBaseURL + apiDetails.APIversion + apiDetails.movie + "/" + movieid + '?' + "language=" + apiDetails.english_language;
     this.http
       .get<movieDetail_resp>(API_URL)

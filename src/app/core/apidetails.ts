@@ -1,4 +1,4 @@
-export abstract class apiDetails {
+export class apiDetails {
   public static readonly APIversion = "/3";
   public static readonly movie = "/movie";
   public static readonly top_rated = "/top_rated";

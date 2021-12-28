@@ -31,7 +31,7 @@
       <div class="row">
         <div class="row__inner"> NOTE Single Movie card <div *ngFor="let movie of Results.results"
                class="tile">
-            <a routerLink="/movie/{{movie.id}}">
+            <a [routerLink]="['/movie/',movie.id]">
               <div class="tile__media">
                 <img class="tile__img"
                      src="https://www.themoviedb.org/t/p/w440_and_h660_face{{movie.poster_path}}"

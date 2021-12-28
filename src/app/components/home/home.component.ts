@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { movieLists_resp } from 'src/app/core/models/stateModel/stateModels';
 import { MovieService } from 'src/app/services/movie.service';
@@ -36,5 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription.forEach(subscription => subscription.unsubscribe())
 
   }
-
+/*   goPlaces(movieID: string | number) {
+    this.router.navigate(['/movie/', movieID]);
+  } */
 }
