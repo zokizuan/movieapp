@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   tiles: Tile[] = [
     { cols: 4, rows: 70, color: '#000' },
-    { cols: 4, rows: 40, color: 'gray' },
+    { cols: 4, rows: 60, color: 'gray' },
   ];
 
   ngOnInit(): void {
