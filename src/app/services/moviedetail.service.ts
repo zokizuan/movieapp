@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Store } from '../core/store';
 import { catchError, first, retry, throwError } from 'rxjs';
-import { movieLists_resp, MovieType } from '../core/models/stateModel/stateModels';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { movieDetail_resp } from '../core/models/stateModel/moviedetailModels';
+import { requiredMovieDetail_resp } from '../core/models/viewModel/moviedetailview';
 import { apiDetails } from '../core/apidetails';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MovieService extends Store<movieLists_resp>  {
+export class MovieService extends Store<requiredMovieDetail_resp>  {
 
   constructor(private http: HttpClient) {
-    super({
-      page: 1,
-      results: [],
-      total_pages: 0,
-      total_results: 0
-    });
+    super({});
   }
 
 
@@ -28,27 +24,29 @@ export class MovieService extends Store<movieLists_resp>  {
     }),
   };
 
-
-  public GetMovieLists(movietype: MovieType, pageChange?: number) {
-    let pageNumberValue = 1;
-    // page handling
-    if (pageChange) {
-      pageNumberValue = pageChange
-    }
-    let pageNumber = `page=${pageNumberValue}`
-
-    const API_URL = apiDetails.APIBaseURL + apiDetails.APIversion + apiDetails.movie + "/" + movietype +  '?' + "language=" + apiDetails.english_language + apiDetails.Ampersand + pageNumber;
-    // TEST
-
+  public GetMovieDetails(movieid: number) {
+    const API_URL = apiDetails.APIBaseURL + apiDetails.APIversion + apiDetails.movie + "/" + movieid + '?' + "language=" + apiDetails.english_language;
     this.http
-      .get<movieLists_resp>(API_URL)
+      .get<movieDetail_resp>(API_URL)
       .pipe(retry(1), catchError(this.handleError), first())
-      .subscribe((response: movieLists_resp) => {
-        let ResultData: movieLists_resp = {
-          page: response.page,
-          results: response.results,
-          total_pages: response.total_pages,
-          total_results: response.total_results
+      .subscribe((response: movieDetail_resp) => {
+        let ResultData: requiredMovieDetail_resp = {
+          backdrop_path: response.backdrop_path,
+          genres: response.genres,
+          homepage: response.homepage,
+          id: response.id,
+          imdb_id: response.imdb_id,
+          original_language: response.original_language,
+          original_title: response.original_title,
+          overview: response.overview,
+          popularity: response.popularity,
+          poster_path: response.poster_path,
+          release_date: response.release_date,
+          revenue: response.revenue,
+          runtime: response.runtime,
+          spoken_languages: response.spoken_languages,
+          title: response.title,
+          video: response.video,
         }
         this.setState(ResultData);
       });
