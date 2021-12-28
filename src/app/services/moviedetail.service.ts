@@ -9,7 +9,7 @@ import { apiDetails } from '../core/apidetails';
 @Injectable({
   providedIn: 'root'
 })
-export class MovieService extends Store<requiredMovieDetail_resp>  {
+export class MovieDetailService extends Store<requiredMovieDetail_resp>  {
 
   constructor(private http: HttpClient) {
     super({});
